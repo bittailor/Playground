@@ -1,0 +1,14 @@
+import testing ;
+
+project C++ 
+	: source-location src ;
+
+
+for cpp in [ glob *.cpp ] 
+{
+	exe $(cpp:S=) : $(cpp) ;
+}
+
+
+
+
