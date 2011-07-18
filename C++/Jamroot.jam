@@ -1,12 +1,16 @@
 import testing ;
 
 project C++ 
-	: source-location src ;
+	: source-location src 
+	;
+
+
+WebServer_Libs = libboost_system-mt.a libboost_regex-mt.a libboost_thread-mt.a ; 
 
 
 for cpp in [ glob *.cpp ] 
 {
-	exe $(cpp:S=) : $(cpp) ;
+	exe $(cpp:S=) : $(cpp) : <library>/usr/local/lib/$($(cpp:B)_Libs) ;
 }
 
 
